@@ -1,5 +1,5 @@
+import { FC, useEffect, useState } from "react"
 import { EnumeratedHint as HintType, validateSpecial } from "#/src/lib/game/index"
-import { useEffect, useState } from "react"
 
 import { Hint } from "./Hint"
 import { WinScreen } from "./WinScreen"
@@ -11,7 +11,11 @@ interface Game {
   hints: HintType[]
 }
 
-export const GameContainer = () => {
+interface GameContainerProps {
+  setShowTitle: (show: boolean) => void
+}
+
+export const GameContainer: FC<GameContainerProps> = ({ setShowTitle }) => {
   const { status } = useSession()
   const [password, setPassword] = useState("")
   const [activeHints, setActiveHints] = useState<number[]>([])
@@ -114,6 +118,7 @@ export const GameContainer = () => {
   if (!data) return <p>Something went wrong...</p>
 
   if (hasWon) {
+    setShowTitle(false)
     return <WinScreen password={password} />
   }
 
@@ -140,11 +145,6 @@ export const GameContainer = () => {
 
   return (
     <div className="flex w-full flex-col gap-y-8">
-      <h1 className="text-center text-2xl">Velkommen til Luke 3!</h1>
-      <p className="text-center">
-        Dagens oppgave er å finne frem til riktig passord. Du vil få hint underveis som vil hjelpe deg til svaret.
-      </p>
-
       <div className="relative flex w-full flex-col justify-center">
         <input
           type="text"
@@ -159,7 +159,12 @@ export const GameContainer = () => {
 
       <div className="flex flex-col gap-y-6">
         {activeHints.map((hintNum) => (
-          <Hint key={hintNum} state={hintStates[hintNum] ?? "incorrect"} text={data.hints[hintNum].text} />
+          <Hint
+            key={hintNum}
+            state={hintStates[hintNum] ?? "incorrect"}
+            text={data.hints[hintNum].text}
+            num={hintNum}
+          />
         ))}
       </div>
     </div>

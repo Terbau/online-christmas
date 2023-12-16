@@ -57,8 +57,8 @@ const buildHints = (): Hint[] => {
     buildArrkomEventsHint(),
     buildDigitsMustSumHint(),
     buildA4RoomsHint(),
-    buildLast5LeadersHint(),
     buildGloshaugenBusesHint(),
+    buildLast5LeadersHint(),
     buildOnlineAgeHint(),
     buildTrikomMemberHint(),
   ]

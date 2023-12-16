@@ -2,19 +2,29 @@
 
 import { signIn, useSession } from "next-auth/react"
 
-import { BorderedButton } from "../components/button/BorderedButton"
 import { Button } from "../components/button/Button"
 import { GameContainer } from "../components/game/GameContainer"
+import { useState } from "react"
 
 const Page = () => {
-  const { data: session, status } = useSession()
+  const { status } = useSession()
+  const [showTitle, setShowTitle] = useState(true)
 
   return (
     <div className="flex max-w-[32rem] flex-col items-center gap-y-6 px-8">
+      {showTitle && (
+        <>
+          <h1 className="text-center text-2xl">Velkommen til Hovedstyrets Julekalender!🚀</h1>
+          <p className="text-center">
+            Dagens oppgave er å finne frem til riktig passord. Du vil få hint underveis som vil hjelpe deg til svaret.
+          </p>
+        </>
+      )}
+
       {status !== "authenticated" ? (
         <Button onClick={() => signIn("google")}>Logg inn for å starte!</Button>
       ) : (
-        <GameContainer />
+        <GameContainer setShowTitle={setShowTitle} />
       )}
     </div>
   )

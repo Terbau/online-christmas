@@ -18,7 +18,7 @@ export const WinScreen: FC<WinScreenProps> = ({ password }) => {
     })
   }
 
-  const { mutate, error, isPending } = useMutation({
+  const { mutate, error } = useMutation({
     mutationFn: submitPassword,
     onSuccess: () => {
       setAnswerWasRegistered(true)
@@ -29,7 +29,7 @@ export const WinScreen: FC<WinScreenProps> = ({ password }) => {
     <div className="flex flex-col items-center gap-y-6 text-center">
       <div>
         <h1 className="text-2xl">Gratulerer!🎉</h1>
-        <p className="text-lg">Du har funnet frem til riktig passord!</p>
+        <p className="text-lg">Du har funnet frem til et gyldig passord!</p>
       </div>
 
       <div className="flex flex-col">
