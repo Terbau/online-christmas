@@ -10,7 +10,7 @@ export const Navbar = () => {
 
   return (
     <div className="flex h-16 w-full flex-row items-center justify-between bg-blue-400 px-8 text-white">
-      <p className="text-xl">Hovedstyret's Julekalender</p>
+      <p className="text-xl">Hovedstyret&apos;s Julekalender</p>
       <div className="flex flex-row items-center gap-x-4">
         {!session ? (
           <Button color="white" onClick={() => signIn("google")}>
