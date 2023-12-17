@@ -4,7 +4,7 @@ const DIGITS_SUM = 35
 
 export function buildHint(): Hint {
   return {
-    text: `Tallene i passordet må summere seg til ${DIGITS_SUM}.`,
+    text: `Sifrene i passordet må summere seg til ${DIGITS_SUM}.`,
     answers: [],
     specialFuncName: "digitsMustSum",
     isObfuscated: false,

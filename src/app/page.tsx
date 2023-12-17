@@ -16,7 +16,8 @@ const Page = () => {
         <>
           <h1 className="text-center text-2xl">Velkommen til Hovedstyrets Julekalender!🚀</h1>
           <p className="text-center">
-            Dagens oppgave er å finne frem til riktig passord. Du vil få hint underveis som vil hjelpe deg til svaret.
+            Dagens oppgave er å finne frem til et gyldig passord. Det vil dukke opp noen regler underveis som skal
+            hjelpe deg med å lage det sikreste passordet mulig.
           </p>
         </>
       )}

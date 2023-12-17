@@ -13,6 +13,9 @@ const queryClient = new QueryClient()
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="[color-scheme:light]">
+      <head>
+        <title>Hovedstyrets Julekalender</title>
+      </head>
       <body className="flex min-h-screen flex-col items-center">
         <SessionProvider>
           <QueryClientProvider client={queryClient}>
