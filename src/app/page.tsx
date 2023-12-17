@@ -23,7 +23,7 @@ const Page = () => {
       )}
 
       {status !== "authenticated" ? (
-        <Button onClick={() => signIn("google")}>Logg inn for å starte!</Button>
+        <Button onClick={() => signIn("ow4")}>Logg inn for å starte!</Button>
       ) : (
         <GameContainer setShowTitle={setShowTitle} />
       )}
