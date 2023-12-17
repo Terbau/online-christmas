@@ -13,7 +13,7 @@ export const Navbar = () => {
       <p className="text-xl">Hovedstyret&apos;s Julekalender</p>
       <div className="flex flex-row items-center gap-x-4">
         {!session ? (
-          <Button color="white" onClick={() => signIn("google")}>
+          <Button color="white" onClick={() => signIn("ow4")}>
             Logg inn
           </Button>
         ) : (
