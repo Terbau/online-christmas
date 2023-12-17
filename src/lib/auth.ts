@@ -1,10 +1,11 @@
-import { Session, User } from "next-auth"
+import { Account, Profile, Session, User } from "next-auth"
 
 import { AdapterUser } from "next-auth/adapters"
 import GoogleProvider from "next-auth/providers/google"
+import { OAuthConfig } from "next-auth/providers"
 import { db } from "#/src/lib/db"
 
-const OW4Config = {
+const OW4Config: OAuthConfig<any> = {
   id: "ow4",
   name: "online.ntnu.no",
   wellKnown: "https://old.online.ntnu.no/openid/.well-known/openid-configuration",
@@ -30,7 +31,7 @@ const OW4Config = {
   },
 }
 
-export const upsertUser = async (id: string, name: string, email: string, authProvider: string) => {
+export const upsertUser = async (id: string, name: string, email: string | undefined, authProvider: string) => {
   if (id && email) {
     // needed for ow4
     await db
@@ -60,8 +61,16 @@ export const authOptions = {
     OW4Config,
   ],
   callbacks: {
-    async signIn({ user, profile, account }: { user: User | AdapterUser; profile: any; account: any }) {
-      await upsertUser(user.id, profile.name, profile.email, account.provider)
+    async signIn({
+      user,
+      account,
+      profile,
+    }: {
+      user: User | AdapterUser
+      account: Account | null
+      profile?: Profile | undefined
+    }) {
+      await upsertUser(user.id, profile?.name ?? "", profile?.email, account?.provider ?? "")
 
       return true
     },
