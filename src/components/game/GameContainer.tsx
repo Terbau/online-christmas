@@ -134,9 +134,9 @@ export const GameContainer: FC<GameContainerProps> = ({ setShowTitle }) => {
     }
 
     if (a > b) {
-      return 1
+      return statusA === "incorrect" ? 1 : -1
     } else if (a < b) {
-      return -1
+      return statusA === "incorrect" ? -1 : 1
     }
 
     // For other cases, maintain the original order

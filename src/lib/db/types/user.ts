@@ -5,5 +5,6 @@ export interface User {
   createdAt: Generated<Date>
   updatedAt: Generated<Date>
   email: string
+  name: string
   authProvider: string
 }

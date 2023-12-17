@@ -19,6 +19,7 @@ export const authOptions = {
           .values({
             id: user.id,
             email: user.email,
+            name: user.name ?? "",
             authProvider: "google",
           })
           .onConflict((oc) =>

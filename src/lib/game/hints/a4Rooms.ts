@@ -11,6 +11,13 @@ export function buildHint(): Hint {
     "webtekrommet",
     "webtek",
     "webtek-rommet",
+    "grupperom",
+    "a4-100",
+    "a4100",
+    "a4-156",
+    "a4156",
+    "a4-112",
+    "a4112",
   ]
 
   return {

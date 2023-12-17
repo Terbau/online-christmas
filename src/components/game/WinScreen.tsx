@@ -29,7 +29,10 @@ export const WinScreen: FC<WinScreenProps> = ({ password }) => {
     <div className="flex flex-col items-center gap-y-6 text-center">
       <div>
         <h1 className="text-2xl">Gratulerer!🎉</h1>
-        <p className="text-lg">Du har funnet frem til et gyldig passord!</p>
+        <p className="text-lg">
+          Du har funnet frem til et gyldig passord! Trykk på knappen under for å automatisk være med i trekningen av et
+          gavekort på 250kr!
+        </p>
       </div>
 
       <div className="flex flex-col">
